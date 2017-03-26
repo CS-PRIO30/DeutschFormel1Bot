@@ -1,0 +1,4 @@
+http://www.motorsport-total.com/rss_f1.xml
+#http://www.motorsport-total.com/rss_formelsport_GP2.xml
+#http://www.motorsport-total.com/rss_wec.xml
+http://www.motorsport-total.com/rss_motorrad_MGP.xml

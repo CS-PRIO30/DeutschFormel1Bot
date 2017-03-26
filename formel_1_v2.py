@@ -59,7 +59,7 @@ def get_nth_article():
 				print str(i + 1) + ") Found new link: "  + url
 				allUrl.append( url )
 				html = urllib.urlopen( url ).read()
-				bsObj = BeautifulSoup( html, "lxml" )
+				bsObj = BeautifulSoup( html, "html.parser" )
 
 				articleImage = bsObj.findAll("meta",{"property":"og:image"})[0].attrs["content"]
 				articleTitle = bsObj.findAll("meta",{"property":"og:title"})[0].attrs["content"].encode('utf-8')

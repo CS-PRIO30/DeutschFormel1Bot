@@ -94,9 +94,9 @@ def sendTelegraph( articleImage, articleTitle, articleUrl, string ,feed ):
 	stringList = string.split(".")
 	for paragraph in stringList:
 		paragraph = paragraph.replace("&quot;","\"")
-		stringAll = stringAll + "<h4><b>" + paragraph.strip() + ".</b></h4>" + "<i><u>" + translate( paragraph.strip(),"en","de" ).encode("utf-8") + ".</u></i>"
+		stringAll = stringAll + "<h4><b>" + paragraph.strip().encode("utf-8") + ".</b></h4>" + "<i><u>" + translate( paragraph.strip(),"en","de" ).encode("utf-8") + ".</u></i>"
 		
-	html_content = "<h4><b>" + articleTitle + "</b></h4>" + "<i><u>" + translate(articleTitle,"en","de").encode("utf-8") + "</u></i>\n" + "<a href=\"" + articleUrl + "\">LINK</a>" + stringAll
+	html_content = "<h4><b>" + articleTitle.encode("utf-8") + "</b></h4>" + "<i><u>" + translate(articleTitle,"en","de").encode("utf-8") + "</u></i>\n" + "<a href=\"" + articleUrl.encode("utf-8") + "\">LINK</a>" + stringAll.encode("utf-8")
 	
 	page = telegraph.createPage( title="Formel-1",  html_content= html_content, author_name="f126ck" )
 	url2send = 'http://telegra.ph/{}'.format(page['path'])

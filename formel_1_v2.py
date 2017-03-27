@@ -69,7 +69,7 @@ def get_nth_article():
 
 				string = ""
 				for p in bsObj.findAll("div",{"class":"newstext"})[0].findAll("p"):
-					paragraph = str(p.get_text().decode("utf-8"))
+					paragraph = p.get_text().decode("utf-8")
 					string = string + paragraph #+ "<i>" + translate( paragraph, "en", "de" ).encode("utf-8")) + "</i>"
 				string = string.replace("(Motorsport-Total.com) - ","")
 				sendTelegraph( articleImage, articleTitle, articleUrl, string, feed )

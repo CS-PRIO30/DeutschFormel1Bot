@@ -57,7 +57,7 @@ def get_nth_article():
 				f = open("LOG/"+ feed.split("/")[-1] + ".txt","a")
 				f.write( url + "\n" )
 				f.close()
-				print str(i + 1) + ") Found new link: "  + url
+				#print str(i + 1) + ") Found new link: "  + url
 				allUrl.append( url )
 				html = urllib.urlopen( url ).read()
 				bsObj = BeautifulSoup( html, "html.parser" )

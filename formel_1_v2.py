@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
-import urllib
+from urllib.request import urlopen #http://stackoverflow.com/questions/2792650/python3-error-import-error-no-module-name-urllib2#2792652
 import feedparser
 from telegraphapi import Telegraph
 import telegram
@@ -59,7 +59,7 @@ def get_nth_article():
 				f.close()
 				#print str(i + 1) + ") Found new link: "  + url
 				allUrl.append( url )
-				html = urllib.urlopen( url ).read()
+				html = urlopen( url ).read()
 				bsObj = BeautifulSoup( html, "html.parser" )
 
 				articleImage = bsObj.findAll("meta",{"property":"og:image"})[0].attrs["content"]

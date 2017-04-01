@@ -107,14 +107,15 @@ def sendTelegraph( articleImage, articleTitle, articleUrl, string ,feed ):
 	tts.save( "AUDIO/" + articleTitle + ".mp3")
 	
 	for chat_id in chat_id_List:
-		print "sending to chat_id: " + str(chat_id)
+		#print "sending to chat_id: " + str(chat_id)
 		try:
 			f = open( "AUDIO/" + articleTitle + ".mp3", "rb")
 			bot.sendMessage(parse_mode = "Html", text = catIntro +  "<b>" + articleTitle + "</b>" + "\n" + url2send ,chat_id = chat_id)
 			bot.sendAudio( audio = f, chat_id = chat_id)
 			f.close()
 		except:
-			print "1 message was not sent to recipient" 
+			pass
+			#print "1 message was not sent to recipient" 
 
 def getCategoryIntro( feed ):
 	category = ""

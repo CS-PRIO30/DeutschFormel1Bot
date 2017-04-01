@@ -87,7 +87,7 @@ def addChatIdFromFile():
 			chat_id_List.append( int(row) )
 	f.close()
 addChatIdFromFile()
-print chat_id_List
+#print chat_id_List
 
 def sendTelegraph( articleImage, articleTitle, articleUrl, string ,feed ):
 	global MY_CHAT_ID_TELEGRAM
@@ -96,7 +96,7 @@ def sendTelegraph( articleImage, articleTitle, articleUrl, string ,feed ):
 	for paragraph in stringList:
 		paragraph = paragraph.replace("&quot;","\"")
 		stringAll = stringAll + "<h4><b>" + paragraph.strip() + ".</b></h4>" + "<i><u>" + translate( paragraph.strip(),"en","de" ).encode("utf-8") + ".</u></i>"
-	print "now"
+	#print "now"
 	html_content = "<h4><b>" + articleTitle.encode("utf-8") + "</b></h4>" + "<i><u>" + translate(articleTitle,"en","de").encode("utf-8") + "</u></i>\n" + "<a href=\"" + articleUrl + "\">LINK</a>" + stringAll.encode("utf-8")
 	
 	page = telegraph.createPage( title="Formel-1",  html_content= html_content, author_name="f126ck" )
@@ -137,25 +137,27 @@ def get_new_Users():
 		try:
 			chat_id = update.message.chat_id
 		except:
-			print "error get_new_users"
+			pass
+			#print "error get_new_users"
 		update_id = update.update_id + 1
 		try:
 			if update.message.chat_id:  # your bot can receive updates without messages
 				if chat_id not in chat_id_List:
-					print "New user added with chat_id: " + str(chat_id)
+					#print "New user added with chat_id: " + str(chat_id)
 					chat_id_List.append( int(chat_id) )
 					f = open("chat_id.txt","a")
 					f.write( str(chat_id) + "\n" )
 					f.close()
 		except:
-			print "error getUpdates"
+			pass
+			#print "error getUpdates"
 	bot.getUpdates(offset=update_id,timeout=0)
 
 def main():
 	while True:
 		get_new_Users()
 		get_nth_article()
-		print "(!) sleep"
+		#print "(!) sleep"
 		time.sleep(300)
 
 main()

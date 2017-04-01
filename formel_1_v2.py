@@ -100,7 +100,7 @@ def sendTelegraph( articleImage, articleTitle, articleUrl, string ,feed ):
 	html_content = "<h4><b>" + articleTitle + "</b></h4>" + "<i><u>" + translate(articleTitle,"en","de") + "</u></i>\n" + "<a href=\"" + articleUrl + "\">LINK</a>" + stringAll
 	
 	page = telegraph.createPage( title="Formel-1",  html_content= html_content, author_name="f126ck" )
-	url2send = 'http://telegra.ph/{}'.format(page['path'].encode("utf-8"))
+	url2send = 'http://telegra.ph/{}'.format(page['path'])
 	catIntro = getCategoryIntro( feed )
 	
 	tts = gTTS(text = articleTitle + string, lang='de')

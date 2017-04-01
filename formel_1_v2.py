@@ -63,14 +63,14 @@ def get_nth_article():
 				bsObj = BeautifulSoup( html, "html.parser" )
 
 				articleImage = bsObj.findAll("meta",{"property":"og:image"})[0].attrs["content"]
-				articleTitle = bsObj.findAll("meta",{"property":"og:title"})[0].attrs["content"].encode('utf-8')
+				articleTitle = bsObj.findAll("meta",{"property":"og:title"})[0].attrs["content"]
 				articleDescription = bsObj.findAll("meta",{"property":"og:description"})[0].attrs["content"]
 				articleUrl = bsObj.findAll("meta",{"property":"og:url"})[0].attrs["content"]
 				articleContent = bsObj.findAll("div",{"class":"newstext"})[0]
 
 				string = ""
 				for p in bsObj.findAll("div",{"class":"newstext"})[0].findAll("p"):
-					paragraph = str(p.get_text().encode("utf-8"))
+					paragraph = p.get_text()
 					string = string + paragraph #+ "<i>" + translate( paragraph, "en", "de" ).encode("utf-8")) + "</i>"
 				string = string.replace("(Motorsport-Total.com) - ","")
 				sendTelegraph( articleImage, articleTitle, articleUrl, string, feed )

@@ -47,8 +47,11 @@ def addRssFeedFromFile():
 	f = open("rss_de.txt")
 	rows = f.read().split("\n")
 	for row in rows:
-		if row[0] != "#":
-			allRssFeed.append( row )
+		try:
+			if row[0] != "#":
+				allRssFeed.append( row )
+		except IndexError:
+			pass
 	f.close()
 	
 def get_nth_article():

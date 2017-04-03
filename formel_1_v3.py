@@ -20,7 +20,7 @@ import re
 
 telegraph = Telegraph()
 telegraph.createAccount("PythonTelegraphAPI")
-TOKEN_TELEGRAM = '332825899:AAEXKpmUg5l0Bi6J6ocFI5nJQywd7CBYh7g' #DeutschFormel1Bot
+TOKEN_TELEGRAM = '358045589:AAH-Bzm42xxEAeGZRLwDPsmQTSNZMKqBBrU' #DeutschFormel1Bot
 MY_CHAT_ID_TELEGRAM = 31923577
 bot = telegram.Bot(TOKEN_TELEGRAM)
 
